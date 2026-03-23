@@ -1,0 +1,14 @@
+KERNELDIR ?= /lib/modules/6.13.8-arch1-1/build
+
+PWD := $(shell pwd)
+
+obj-m := rootkit.o
+
+modules:
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) $@ $^
+
+clean:
+	$(RM) *.o *~ core .depend .*.cmd *.ko *.mod.c \
+		*.tmp_versions *.mod *.order *.symvers
+
+.PHONY: modules clean

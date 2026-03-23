@@ -1,0 +1,28 @@
+Please install cloud-utils before starting:
+
+sudo apt update
+sudo apt install cloud-image-utils
+sxhost +local:root
+
+#################################  ATTACK  #####################################
+In order to have graphical interface on Attack machine please install the packages:
+
+sudo apt install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
+sudo apt install firefox-esr
+
+After please setup the graphical environment:
+
+inside ~/.xinitrc:
+
+#!/bin/sh
+openbox &
+MOZ_FORCE_DISABLE_E10S=1 GTK_THEME=Adwaita:dark firefox --kiosk
+
+To launch firefox:
+startx
+
+If not installed, please install npm next (not via apt install, from source)
+
+
+To launch frontend:
+- nohup npm run dev > out.log 2>&1 &

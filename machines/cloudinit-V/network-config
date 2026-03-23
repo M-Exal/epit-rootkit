@@ -1,0 +1,10 @@
+version: 2
+ethernets:
+  ens3:
+    dhcp4: false
+    addresses: [192.168.100.11/24]
+    nameservers:
+      addresses: [8.8.8.8, 1.1.1.1]
+    macaddress: "52:54:00:12:34:56:aa"
+  ens4:
+    dhcp4: true

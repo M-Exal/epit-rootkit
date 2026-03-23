@@ -1,0 +1,19 @@
+#cloud-config
+users:
+  - name: debian
+    groups: sudo
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+
+hostname: vmA
+
+packages:
+  - sudo
+  - htop
+
+ssh_pwauth: true
+
+chpasswd:
+  list: |
+    debian:debian
+  expire: false
